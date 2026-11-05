@@ -1,0 +1,564 @@
+/* Colores, tipografía base y valores compartidos por toda la aplicación. */
+:root {
+  color-scheme: light;
+  font-family: "Segoe UI", sans-serif;
+  color: #202c29;
+  background: #f5f6f2;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  --ink: #202c29;
+  --muted: #78827e;
+  --green: #15745d;
+  --green-dark: #105b49;
+  --mint: #e5f2ec;
+  --line: #e9ece8;
+}
+
+/* Normaliza el tamaño de los elementos y el fondo de la página. */
+* {
+  box-sizing: border-box;
+}
+
+/* Configuración general de la página y controles. */
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 82% 5%, rgba(218, 237, 224, 0.6), transparent 34rem),
+    #f5f6f2;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Contenedor principal y navegación superior. */
+.app-shell {
+  width: min(100% - 48px, 1040px);
+  margin: 0 auto;
+}
+
+.topbar {
+  height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink);
+  text-decoration: none;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -0.7px;
+}
+
+.brand-mark {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border-radius: 11px;
+  color: #fff;
+  background: var(--green);
+  font-size: 17px;
+}
+
+.brand-accent {
+  color: var(--green);
+}
+
+/* Selector de moneda en la cabecera. */
+.currency-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px 6px 12px;
+  border: 1px solid #e6e9e4;
+  border-radius: 20px;
+  color: #65706b;
+  background: rgba(255, 255, 255, 0.64);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+/* Etiqueta y lista de selección de moneda. */
+.currency-badge label {
+  white-space: nowrap;
+}
+
+#currency-select {
+  max-width: 190px;
+  border: 0;
+  outline: 0;
+  color: var(--green-dark);
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+}
+
+/* Título y descripción de bienvenida. */
+.intro {
+  padding: 51px 0 34px;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--green);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 12px;
+  font-family: "Segoe UI", sans-serif;
+  font-size: clamp(32px, 5vw, 46px);
+  font-weight: 700;
+  letter-spacing: -2.1px;
+  line-height: 1.16;
+}
+
+h1 span {
+  color: var(--green);
+}
+
+.intro-copy {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* Tarjeta que contiene el formulario y el resumen. */
+.calculator {
+  display: grid;
+  grid-template-columns: 1fr 0.92fr;
+  overflow: hidden;
+  border: 1px solid #eceeea;
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 18px 55px rgba(34, 52, 43, 0.075);
+}
+
+/* Campos del monto, la propina y el número de personas. */
+.form-panel {
+  padding: 36px 39px 33px;
+}
+
+.field-group {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.field-group > label,
+.tip-group legend {
+  display: block;
+  margin-bottom: 11px;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* Entrada y prefijo del monto en USD. */
+.input-wrap {
+  height: 54px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #e5e9e5;
+  border-radius: 11px;
+  background: #fbfcfa;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.input-wrap:focus-within,
+.people-control:focus-within {
+  border-color: #83bba7;
+  box-shadow: 0 0 0 3px rgba(21, 116, 93, 0.09);
+}
+
+.input-prefix {
+  padding-left: 16px;
+  color: #68746e;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.amount-input input {
+  width: 100%;
+  height: 100%;
+  padding: 0 14px 0 9px;
+  border: 0;
+  outline: 0;
+  color: var(--ink);
+  background: transparent;
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.amount-input input::placeholder {
+  color: #b6bfba;
+}
+
+/* Mensajes de error y aclaraciones de entrada. */
+.field-error {
+  min-height: 16px;
+  margin: 5px 0 0;
+  color: #b34336;
+  font-size: 11px;
+}
+
+.input-hint {
+  margin: 0;
+  color: #87918b;
+  font-size: 10px;
+  line-height: 1.45;
+}
+
+/* Botones de porcentaje de propina. */
+.tip-group {
+  margin-top: 16px;
+}
+
+.tip-group legend {
+  padding: 0;
+}
+
+.tip-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.tip-button {
+  height: 45px;
+  border: 1px solid #e5e9e5;
+  border-radius: 9px;
+  color: #4a5751;
+  background: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  transition: border-color 150ms ease, background 150ms ease, color 150ms ease;
+}
+
+.tip-button span {
+  margin-left: 1px;
+  font-size: 12px;
+}
+
+.tip-button:hover {
+  border-color: #a6cbbb;
+}
+
+.tip-button.is-selected {
+  border-color: var(--green);
+  color: #fff;
+  background: var(--green);
+  box-shadow: 0 4px 10px rgba(21, 116, 93, 0.16);
+}
+
+.tip-button:focus-visible,
+.step-button:focus-visible {
+  outline: 3px solid rgba(21, 116, 93, 0.26);
+  outline-offset: 2px;
+}
+
+/* Control para aumentar o reducir las personas. */
+.people-group {
+  margin-top: 19px;
+}
+
+.people-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.people-label label {
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.label-hint {
+  color: #929b96;
+  font-size: 10px;
+}
+
+.people-control {
+  height: 50px;
+  display: grid;
+  grid-template-columns: 46px 1fr 46px;
+  align-items: center;
+  margin-top: 11px;
+  overflow: hidden;
+  border: 1px solid #e5e9e5;
+  border-radius: 10px;
+  background: #fbfcfa;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.step-button {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  color: #56625c;
+  background: transparent;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.step-button:hover {
+  color: var(--green);
+  background: #f0f7f3;
+}
+
+#people-count {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  outline: 0;
+  color: var(--ink);
+  background: transparent;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 700;
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+#people-count::-webkit-inner-spin-button,
+#people-count::-webkit-outer-spin-button {
+  margin: 0;
+  appearance: none;
+}
+
+/* Panel con la propina, total convertido y división por persona. */
+.results-panel {
+  display: flex;
+  flex-direction: column;
+  padding: 36px 34px 26px;
+  background: #f9fbf8;
+}
+
+.results-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.results-icon {
+  display: grid;
+  width: 39px;
+  height: 39px;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 13px;
+  color: var(--green);
+  background: #e5f2ec;
+  font-size: 21px;
+}
+
+.results-heading .eyebrow {
+  margin-bottom: 4px;
+  font-size: 9px;
+}
+
+.results-heading h2 {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+}
+
+.result-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--line);
+  color: #66716b;
+  font-size: 12px;
+}
+
+.result-line strong {
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+#tip-rate-label {
+  color: #909b95;
+}
+
+.per-person-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 22px;
+  padding: 20px 12px 17px;
+  border: 1px solid #dfece4;
+  border-radius: 14px;
+  background: #edf6f0;
+  text-align: center;
+}
+
+.per-person-label {
+  color: #4d685a;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.per-person-amount {
+  margin-top: 5px;
+  color: var(--green-dark);
+  font-family: "Segoe UI", sans-serif;
+  font-size: clamp(30px, 4vw, 39px);
+  font-weight: 800;
+  letter-spacing: -1.6px;
+  line-height: 1.2;
+}
+
+.per-person-note {
+  margin-top: 5px;
+  color: #73857a;
+  font-size: 10px;
+}
+
+.result-footnote {
+  margin: auto 0 0;
+  padding-top: 17px;
+  color: #919b95;
+  font-size: 10px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* Pie de página. */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 21px 2px 30px;
+  color: #8a948e;
+  font-size: 10px;
+}
+
+.footer span:last-child span {
+  color: #d67569;
+}
+
+/* Ajustes de distribución para pantallas pequeñas. */
+@media (max-width: 680px) {
+  .app-shell {
+    width: min(100% - 32px, 460px);
+  }
+
+  .topbar {
+    height: 69px;
+  }
+
+  .currency-badge {
+    max-width: 210px;
+    gap: 5px;
+    padding: 7px 8px;
+    font-size: 9px;
+  }
+
+  #currency-select {
+    max-width: 126px;
+    font-size: 9px;
+  }
+
+  .intro {
+    padding: 39px 0 27px;
+  }
+
+  h1 {
+    max-width: 410px;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: clamp(31px, 9vw, 40px);
+    letter-spacing: -1.7px;
+  }
+
+  .intro-copy {
+    max-width: 280px;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  .calculator {
+    grid-template-columns: 1fr;
+    border-radius: 18px;
+  }
+
+  .form-panel {
+    padding: 27px 24px 12px;
+  }
+
+  .results-panel {
+    padding: 25px 24px 21px;
+  }
+
+  .results-heading {
+    margin-bottom: 16px;
+  }
+
+  .per-person-card {
+    margin-top: 17px;
+  }
+
+  .per-person-amount {
+    font-size: 36px;
+  }
+
+  .result-footnote {
+    padding-top: 13px;
+  }
+
+  .footer {
+    padding-top: 17px;
+    font-size: 9px;
+  }
+}
+
+/* Respeta la preferencia del usuario de reducir animaciones. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

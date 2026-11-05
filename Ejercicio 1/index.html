@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f5f6f2" />
+    <meta
+      name="description"
+      content="Calcula la propina y divide la cuenta de forma rápida y sencilla."
+    />
+    <link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>TipCalculator Express</title>
+  </head>
+  <body>
+    <main class="app-shell">
+      <!-- Marca y selector de moneda de los resultados. -->
+      <header class="topbar">
+        <a class="brand" href="./" aria-label="TipCalculator Express, inicio">
+          <span class="brand-mark" aria-hidden="true">$</span>
+          <span>tip<span class="brand-accent">express</span></span>
+        </a>
+        <div class="currency-badge">
+          <label for="currency-select">Resultados en</label>
+          <select id="currency-select" name="currency">
+            <option value="USD">USD · Dólar estadounidense</option>
+            <option value="EUR">EUR · Euro</option>
+            <option value="MXN">MXN · Peso mexicano</option>
+            <option value="COP">COP · Peso colombiano</option>
+            <option value="CAD">CAD · Dólar canadiense</option>
+            <option value="GBP">GBP · Libra esterlina</option>
+            <option value="JPY">JPY · Yen japonés</option>
+          </select>
+        </div>
+      </header>
+
+      <!-- Presentación breve de la calculadora. -->
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow">CUENTAS CLARAS, MESA FELIZ</p>
+        <h1 id="page-title">La cuenta, <span>sin complicaciones.</span></h1>
+        <p class="intro-copy">
+          Calcula la propina y descubre cuánto pone cada persona.
+        </p>
+      </section>
+
+      <!-- Formulario de la cuenta, porcentaje de propina y personas. -->
+      <section class="calculator" aria-label="Calculadora de propinas">
+        <div class="form-panel">
+          <div class="field-group">
+            <label for="bill-amount">Total de la cuenta (<span id="input-currency-code">USD</span>)</label>
+            <div class="amount-input input-wrap">
+              <span class="input-prefix" id="input-currency-symbol" aria-hidden="true">$</span>
+              <input
+                id="bill-amount"
+                name="bill-amount"
+                type="text"
+                inputmode="decimal"
+                autocomplete="off"
+                placeholder="0.00"
+                aria-describedby="bill-error amount-hint"
+              />
+            </div>
+            <p class="field-error" id="bill-error" aria-live="polite"></p>
+            <p class="input-hint" id="amount-hint">
+              El monto y los resultados se muestran en USD.
+            </p>
+          </div>
+
+          <fieldset class="field-group tip-group">
+            <legend>¿Cuánta propina quieres dejar?</legend>
+            <div class="tip-options" aria-label="Porcentaje de propina">
+              <button class="tip-button" type="button" data-tip="10" aria-pressed="false">
+                10<span>%</span>
+              </button>
+              <button class="tip-button is-selected" type="button" data-tip="15" aria-pressed="true">
+                15<span>%</span>
+              </button>
+              <button class="tip-button" type="button" data-tip="20" aria-pressed="false">
+                20<span>%</span>
+              </button>
+            </div>
+          </fieldset>
+
+          <div class="field-group people-group">
+            <div class="people-label">
+              <label for="people-count">¿Entre cuántas personas?</label>
+              <span class="label-hint">División equitativa</span>
+            </div>
+            <div class="people-control">
+              <button
+                class="step-button"
+                id="decrease-people"
+                type="button"
+                aria-label="Restar una persona"
+              >−</button>
+              <input
+                id="people-count"
+                name="people-count"
+                type="number"
+                inputmode="numeric"
+                min="1"
+                step="1"
+                value="1"
+                aria-describedby="people-error"
+              />
+              <button
+                class="step-button"
+                id="increase-people"
+                type="button"
+                aria-label="Agregar una persona"
+              >+</button>
+            </div>
+            <p class="field-error" id="people-error" aria-live="polite"></p>
+          </div>
+        </div>
+
+        <!-- Resultados actualizados automáticamente al cambiar cualquier entrada. -->
+        <section class="results-panel" aria-label="Resultados del cálculo" aria-live="polite">
+          <div class="results-heading">
+            <span class="results-icon" aria-hidden="true">✳</span>
+            <div>
+              <p class="eyebrow">TU RESUMEN</p>
+              <h2>Así queda la cuenta</h2>
+            </div>
+          </div>
+
+          <div class="result-line">
+            <span>Propina <span id="tip-rate-label">(15%)</span></span>
+            <strong id="tip-total">$—</strong>
+          </div>
+          <div class="result-line">
+            <span>Total con propina</span>
+            <strong id="grand-total">$—</strong>
+          </div>
+
+          <div class="per-person-card">
+            <span class="per-person-label">Cada persona paga</span>
+            <strong class="per-person-amount" id="per-person-total">$—</strong>
+            <span class="per-person-note" id="split-note">Ingresa el total para comenzar</span>
+          </div>
+
+          <p class="result-footnote">
+            La propina se calcula sobre la cuenta en la moneda seleccionada.
+            <span id="conversion-note">Tasas fijas de demostración; no son cotizaciones actuales.</span>
+          </p>
+        </section>
+      </section>
+
+      <!-- Pie de página. -->
+      <footer class="footer">
+        <span>Un buen servicio merece una buena propina.</span>
+        <span>Hecho para compartir <span aria-hidden="true">♥</span></span>
+      </footer>
+    </main>
+    <!-- Lógica de estado local y cálculo de la aplicación. -->
+    <script src="app.js" defer></script>
+  </body>
+</html>
