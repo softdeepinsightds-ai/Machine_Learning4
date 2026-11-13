@@ -1,16 +1,30 @@
-# React + Vite
+# BioRadar
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Prototipo web adaptable a móviles para explorar observaciones de biodiversidad, crear misiones de monitoreo y visualizar alertas comunitarias.
 
-Currently, two official plugins are available:
+## Iniciar la app
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Desde esta carpeta:
 
-## React Compiler
+```sh
+npm install
+npm run dev
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Para generar la compilación de producción:
 
-## Expanding the Oxlint configuration
+```sh
+npm run build
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Funcionalidades del prototipo
+
+- Mapa ilustrativo del campus con observaciones seleccionables, filtros por tipo de especie y búsqueda.
+- Formulario para registrar una especie, indicar si necesita atención y crear una misión de seguimiento.
+- Alertas de demostración para posibles especies invasoras, fauna en riesgo y avistamientos inusuales; la interfaz indica el radio comunitario de 2 km.
+- Vistas de exploración, misiones, comunidad y perfil, con navegación adaptada a pantallas móviles.
+- Solicitud opcional de ubicación del dispositivo, solo después de que la persona la active.
+
+## Alcance
+
+La app funciona como prototipo de interfaz: los reportes y alertas se mantienen en el estado local mientras la página está abierta. El mapa es ilustrativo; la identificación automática de especies, el almacenamiento persistente, el monitoreo en vivo y el envío real de alertas geolocalizadas requieren integrar servicios de mapas, una API y un backend de notificaciones.
