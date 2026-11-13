@@ -1,0 +1,11 @@
+**/.venv/
+**/__pycache__/
+**/.dart_tool/
+**/build/
+**/.gradle/
+**/.idea/
+**/*.apk
+**/.env
+**/*.backup
+**/*.dump
+**/galeria_embeddings.json

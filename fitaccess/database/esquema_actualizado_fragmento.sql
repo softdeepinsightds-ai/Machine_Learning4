@@ -1,0 +1,3 @@
+-- Para instalaciones NUEVAS: añadir al CREATE TABLE usuarios de schema.sql:
+-- cedula VARCHAR(10) UNIQUE CHECK (cedula ~ '^[0-9]{10}$'),
+-- Para instalaciones EXISTENTES: usar migracion_cedula.sql en lugar de recrear tablas.
