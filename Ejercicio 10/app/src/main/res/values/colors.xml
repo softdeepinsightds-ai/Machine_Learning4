@@ -1,0 +1,7 @@
+<resources>
+    <color name="screen_background">#F5F5F5</color>
+    <color name="login_button">#168FE5</color>
+    <color name="text_primary">#333333</color>
+    <color name="text_hint">#777777</color>
+    <color name="field_border">#D9DDE2</color>
+</resources>

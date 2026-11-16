@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Login XML</string>
+    <string name="logo_description">Icono de usuario</string>
+    <string name="login_title">Bienvenido de nuevo</string>
+    <string name="email_hint">Correo electrónico</string>
+    <string name="password_hint">Contraseña</string>
+    <string name="login_button">Iniciar sesión</string>
+    <string name="error_email_required">Ingresa tu correo electrónico.</string>
+    <string name="error_email_invalid">Ingresa un correo electrónico válido.</string>
+    <string name="error_password_required">Ingresa tu contraseña.</string>
+    <string name="login_demo_success">Formulario válido. La autenticación requiere un servidor.</string>
+</resources>
