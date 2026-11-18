@@ -1,0 +1,43 @@
+@use "bootstrap/scss/bootstrap";
+@use "sass:meta";
+@use "./variables" as *;
+@use "./shared/base" as *;
+
+html {
+  background: url("https://picsum.photos/2560/1440") center no-repeat fixed;
+}
+
+body {
+  background: rgba(#000000, 0.6);
+  padding: 0px 20px 20px 20px;
+  min-height: 100vh;
+}
+
+.navbar-brand {
+  font-size: 1.5em;
+
+  img {
+    display: inline-block;
+    width: 50px;
+  }
+}
+
+#root {
+  h2 {
+    margin-top: 0px;
+  }
+
+  h4 {
+    margin-top: 20px;
+  }
+}
+
+.btn-action {
+  outline: none;
+  border: none;
+}
+
+
+@include meta.load-css("main-window");
+@include meta.load-css("call-window");
+@include meta.load-css("call-modal");

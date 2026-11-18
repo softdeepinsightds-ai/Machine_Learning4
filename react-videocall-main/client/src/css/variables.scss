@@ -1,0 +1,11 @@
+@use "sass:color";
+
+// Variables
+$main-color: #FFFFFF;
+$secondary-color: color.adjust(#888888, $lightness: -10%);
+$main-font-size: 14px;
+
+$green: #7FBA00;
+$yellow: #FCD116;
+$red: #E81123;
+$blue: #00AFF0;
