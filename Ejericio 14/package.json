@@ -1,0 +1,27 @@
+{
+  "name": "generative-ui-studio",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "next": "^15.5.7",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.30",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.7",
+    "typescript": "^5.9.3",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "^15.5.29"
+  },
+  "overrides": {
+    "postcss": "^8.5.33"
+  }
+}
