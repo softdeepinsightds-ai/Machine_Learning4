@@ -1,0 +1,18 @@
+# Exclude compiled files
+build
+coverage
+/lib
+.eslintcache
+.nyc_output
+tmp
+
+# OS files
+.DS_STORE
+
+# npm files
+node_modules
+*.log
+
+# Editor files
+.idea
+.vscode
